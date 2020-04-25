@@ -1,0 +1,21 @@
+def F(n):
+    def f(a, n):
+        for i in range(0, n):
+            if a == 0:
+                n += 1
+                break
+            n = f((a - 1), n)
+        return n
+    return f(n, n)
+def fo(t, a, n):
+    for i in range(0, n):
+        if t == 0:
+            n = F(n)
+        if a == 0:
+            n = fo((t - 1), n, n)
+            break
+        n = fo(t, (a - 1), n)
+    return n
+def fr(n):
+    fo(n, n, n)
+print(fr(99))

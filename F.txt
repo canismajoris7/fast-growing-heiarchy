@@ -1,0 +1,25 @@
+def fo(n):
+    def f0(n):
+        n = n + 1
+        return n
+    def fa(a, n):
+        for i in range(0, n):
+            if a == 0:
+                n = f0(n)
+                break
+            n = fa((a - 1), n)
+        return n
+    return fa(n, n)
+def fotn(t, a, n):
+    if t == 0:
+        n = fo(n)
+    else:
+        for i in range(0, n):
+            if a == 0:
+                n = fotn((t - 1), n, n)
+                break
+            n = fotn(t, (a - 1), n)
+        return n
+def foto(n):
+    fotn(n, n, n)
+print(foto(99))
